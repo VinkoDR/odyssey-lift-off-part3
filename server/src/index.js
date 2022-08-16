@@ -1,7 +1,7 @@
 const { ApolloServer } = require('apollo-server');
 const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
-
+const  cors = require("cors")
 const TrackAPI = require('./datasources/track-api');
 
 const server = new ApolloServer({
@@ -12,7 +12,10 @@ const server = new ApolloServer({
       trackAPI: new TrackAPI(),
     };
   },
+
 });
+
+
 
 server.listen().then(() => {
   console.log(`
